@@ -7,6 +7,8 @@ import 'package:hidden_drawer_menu/model/item_hidden_menu.dart';
 import 'package:hidden_drawer_menu/model/screen_hidden_drawer.dart';
 import 'package:hidden_drawer_menu/simple_hidden_drawer/animated_drawer_content.dart';
 import 'package:hidden_drawer_menu/simple_hidden_drawer/simple_hidden_drawer.dart';
+import 'package:provider/provider.dart';
+import 'package:vybrnt_mvp/core/navbar/tab_color.dart';
 
 export 'package:hidden_drawer_menu/controllers/animated_drawer_controller.dart';
 export 'package:hidden_drawer_menu/controllers/simple_hidden_drawer_controller.dart';
@@ -126,10 +128,14 @@ class HiddenDrawerMenu extends StatelessWidget {
       typeOpen: typeOpen,
       initPositionSelected: initPositionSelected,
       screenSelectedBuilder: (position, bloc) {
-        return Scaffold(
-          backgroundColor: backgroundColorContent,
-          appBar: _getAppbar(position, bloc),
-          body: screens[position].screen,
+        return ChangeNotifierProvider<TabColor>(
+          create: (context) => TabColor(),
+          child: Scaffold(
+            resizeToAvoidBottomInset: false,
+            backgroundColor: backgroundColorContent,
+            appBar: _getAppbar(position, bloc),
+            body: screens[position].screen,
+          ),
         );
       },
     );
