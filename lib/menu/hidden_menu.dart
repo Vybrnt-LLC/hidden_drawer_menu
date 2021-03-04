@@ -6,7 +6,6 @@ import 'package:hidden_drawer_menu/simple_hidden_drawer/animated_drawer_content.
 import 'package:vybrnt_mvp/core/routes/router.gr.dart' as route;
 import 'package:vybrnt_mvp/features/authentication/application/auth/bloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vybrnt_mvp/core/swipe_menu/widgets/simple_hidden_drawer_provider.dart';
 import 'package:auto_route/auto_route.dart';
 
 class HiddenMenu extends StatefulWidget {
